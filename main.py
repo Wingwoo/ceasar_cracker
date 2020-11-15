@@ -21,16 +21,21 @@ def ceasar_cipher(string, shift):
 
 def ceasar_cracker(known, string):
     count = 0
+    listed = []
     while count < 52:
         if known in string:
-            return string
+            if string in listed:
+                pass
+            else:
+                listed.append(string)
+                print ("Possible value is: " + string)
         else:
             string = ceasar_cipher(string, -1)
         count = count + 1
         
 
 #Main
-print("Ceasar Cipher Cracker | V0.1 | Made By WingwooGaming")
+print("Ceasar Cipher Cracker | V0.2 | Made By WingwooGaming")
 crack = input("What is the string to crack? ")
 known_value = input("What is a value that is known to be in the decoded key? ")
 print(ceasar_cracker(known_value, crack))
