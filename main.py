@@ -32,11 +32,31 @@ def ceasar_cracker(known, string):
         else:
             string = ceasar_cipher(string, -1)
         count = count + 1
-        
 
+def ceaser_no_key_cracker(string):
+    commonwords = ["the", "of", "and", "to", "in", "is", "you", "that", "it", "he", "her", "was", "for", "on", "are", "as", "with", "his", "hers", "they", "at", "be", "this", "have", "from", "from", "or", "one", "had", "by", "word", "but", "not", "what", "all", "were", "we", "when", "your", "can", "said", "there", "use", "an", "each", "which", "do", "how", "their", "if", "will"]
+    debugwords = ["the", "of"]
+    count = 0
+    listed = []
+    while count < 1000000:
+        for word in commonwords:
+            if word in string:
+                if string in listed:
+                    pass
+                else:
+                    listed.append(string)
+                    print ("Possible value is | " + string + " | with the word " + word)
+        string = ceasar_cipher(string, -1)
+        count = count + 1
+
+def organise(listedstrings):
+    listed = listedstrings
+    dictionary = {}
+
+    
 #Main
-print("Ceasar Cipher Cracker | V0.2 | Made By WingwooGaming")
+print("Ceasar Cipher Cracker | V0.3 | Made By WingwooGaming")
 crack = input("What is the string to crack? ")
-known_value = input("What is a value that is known to be in the decoded key? ")
-print(ceasar_cracker(known_value, crack))
-
+#known_value = input("What is a value that is known to be in the decoded key? ")
+#print(ceasar_cracker(known_value, crack))
+ceaser_no_key_cracker(crack)
